@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "title": "任务完成通知",
+    "description": "任务完成、失败或等待审批时，在 Windows 右下角弹出通知；DSH 窗口最小化时同样生效。"
+  },
+  "toast": {
+    "done": {
+      "title": "任务已完成",
+      "body": "{title} 已结束 · {tools} 次工具调用"
+    },
+    "failed": {
+      "title": "任务中断",
+      "body": "{title} 已停止 · {reason}"
+    },
+    "approval": {
+      "title": "等待你的确认",
+      "body": "{tool} 需要你批准后继续"
+    }
+  },
+  "actions": {
+    "open": "打开会话",
+    "dismiss": "忽略",
+    "later": "稍后",
+    "details": "查看原因",
+    "review": "立即处理"
+  }
+}

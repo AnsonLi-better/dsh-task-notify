@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "title": "Task Notifications",
+    "description": "Shows a Windows toast in the bottom-right corner when a task finishes, fails, or needs approval — including while the DSH window is minimized."
+  },
+  "toast": {
+    "done": {
+      "title": "Task completed",
+      "body": "{title} finished · {tools} tool calls"
+    },
+    "failed": {
+      "title": "Task interrupted",
+      "body": "{title} stopped · {reason}"
+    },
+    "approval": {
+      "title": "Waiting for your confirmation",
+      "body": "{tool} needs approval before it can continue"
+    }
+  },
+  "actions": {
+    "open": "Open session",
+    "dismiss": "Dismiss",
+    "later": "Later",
+    "details": "See why",
+    "review": "Review"
+  }
+}

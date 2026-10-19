@@ -1,0 +1,56 @@
+{
+  "name": "dsh-task-notify",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Windows desktop toast for DSH task completion, failure, and approval requests, with a settings panel.",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "assets/toast.ps1",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "icon": "./icon.svg",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "author": "AnsonLi-better",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnsonLi-better/dsh-task-notify.git",
+    "directory": "bundle"
+  },
+  "homepage": "https://github.com/AnsonLi-better/dsh-task-notify#readme",
+  "bugs": {
+    "url": "https://github.com/AnsonLi-better/dsh-task-notify/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "harness-plugin",
+    "notification",
+    "toast",
+    "windows"
+  ]
+}

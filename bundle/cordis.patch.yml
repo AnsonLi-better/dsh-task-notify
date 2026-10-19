@@ -1,0 +1,16 @@
+# Task-notify bundle patch.
+#
+# One Host row. The row name is the package specifier, so the Loader resolves
+# this bundle from wherever the profile installed it. Values here are only the
+# starting point: the settings panel writes its own through the config editor.
+- insert:
+    - id: task-notify
+      name: 'dsh-task-notify'
+      config:
+        durationMs: 6000
+        maxVisible: 3
+        notifySubagents: false
+        sound: true
+        soundVolume: 35
+        mute: false
+        theme: system
