@@ -67,35 +67,132 @@
 
 ## 安装
 
+> **只需要三步**：复制一句话给助手 → 重启 DSH → 点一下「试弹一次」。不需要命令行，不需要改配置文件。
+
 ### 前置要求
 
-| 项目 | 要求 |
-|---|---|
-| DeepSeek Harness | ≥ 0.2.0（桌面版或 `dsh` CLI） |
-| 操作系统 | Windows 10 / 11 |
-| PowerShell | 5.1（系统自带） |
-| 运行时 | .NET Framework 4.8（系统自带，无需另装） |
+| 项目 | 要求 | 怎么确认 |
+|---|---|---|
+| DeepSeek Harness | ≥ 0.2.0 | 应用菜单 →「关于 DeepSeek Harness」看版本 |
+| 操作系统 | Windows 10 / 11 | — |
+| PowerShell 5.1 | 系统自带 | 无需操作 |
+| .NET Framework 4.8 | 系统自带 | 无需操作 |
 
-### 方式一：从 GitHub 安装（推荐）
+不需要安装 Node.js、Python 或任何额外运行时。
 
-插件包在仓库的 `bundle/` 子目录，**务必带上 `#path:/bundle`**：
+### 方式一：让 DSH 里的助手装（最省事）
+
+在 DSH 里新建一个会话，把下面整段发过去：
+
+```text
+帮我安装 DSH 插件「任务通知」，装完告诉我怎么验证。
+
+插件地址：https://github.com/AnsonLi-better/dsh-task-notify
+注意：插件包在仓库的 bundle/ 子目录，所以安装时必须带上 #path:/bundle，
+完整参数是 github:AnsonLi-better/dsh-task-notify#path:/bundle
+
+安装命令（在当前 profile 里执行）：
+  & "$env:LOCALAPPDATA/Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd" `
+    plugin --profile $env:DSH_PROFILE add github:AnsonLi-better/dsh-task-notify#path:/bundle
+
+如果 $env:DSH_PROFILE 为空，就用 desktop。
+装完请提醒我重启 DSH。
+```
+
+助手会自己读到 `DSH_PROFILE`，装到你正在用的那个 profile 里，不需要你告诉它用哪个。
+
+### 方式二：图形界面装（不想用命令行）
+
+1. 打开 **设置 → 插件**
+2. 点右上角 **添加插件**
+3. 选 **安装第三方插件**
+4. 在「包名或地址」里粘贴这一整行：
+
+   ```
+   github:AnsonLi-better/dsh-task-notify#path:/bundle
+   ```
+
+5. 点 **安装**，等它跑完
+6. 提示「已安装，请重启 DSH」时，**重启 DSH**
+
+> 界面上还能切换「安装源」。国内网络访问 GitHub 慢的话，先切到「中国大陆镜像源」再重试。
+
+### 方式三：命令行装
 
 ```powershell
 & "$env:LOCALAPPDATA/Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd" `
   plugin --profile desktop add github:AnsonLi-better/dsh-task-notify#path:/bundle
 ```
 
-装完**重启 DSH**：Host 半边即时生效，设置面板需要刷新页面。
+- `--profile` 必须写，桌面版用 `desktop`。不确定就先用 `$env:DSH_PROFILE`。
+- DSH 装在别处时，把 `dsh.cmd` 的路径换成你的实际路径。
 
-> `--profile` 指定目标 profile，桌面端默认 `desktop`；自定义安装位置时把 `dsh.cmd` 换成你的实际路径。
+### ⚠️ 最容易踩的坑：漏掉 `#path:/bundle`
 
-### 方式二：让 Harness 里的助手装
+插件包在仓库的 `bundle/` 子目录，**不在根目录**。漏掉这个后缀，安装会「成功」但装到的是一个空包：
 
-在创造模式里说：
+```text
++ dsh-task-notify 0.0.0        ← 版本 0.0.0 就是装错了
+```
 
-> 帮我安装任务通知插件：`github:AnsonLi-better/dsh-task-notify#path:/bundle`
+正确的结果是 `0.1.0`：
 
-### 方式三：本地目录（开发用）
+```text
++ dsh-task-notify 0.1.0        ← 这才是对的
+```
+
+看到 `0.0.0` 就卸载重装，记得补上 `#path:/bundle`。
+
+### 装完必须重启
+
+插件分 Host 和 Client 两半：Host 半边重启后生效，设置面板要等页面重新加载才出现。**重启 DSH 是最省事的做法**，否则可能只有通知能用、面板看不见。
+
+### 验证：确认真的能用
+
+**第一步，确认装上了。** 设置 → 插件，列表里应该出现「任务通知」，状态是运行中。
+
+**第二步，点一下试弹。** 打开 **设置 → 插件 → 任务通知**，点「试弹一次 · 完成」，右下角应弹出绿色通知。
+
+**第三步，最小化再试一次。** 把 DSH 主窗口最小化，再点「试弹一次 · 失败」，红色通知仍应出现——这是这个插件的核心价值。
+
+三步都过，就装好了。之后正常跑任务，结束时会自动弹通知。
+
+命令行验证（可选）：
+
+```powershell
+& "$env:LOCALAPPDATA/Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd" `
+  plugin --profile desktop list
+```
+
+依赖列表里应出现 `dsh-task-notify@0.1.0`。
+
+### 装不上怎么办
+
+| 现象 | 原因 | 解决 |
+|---|---|---|
+| 装成了 `0.0.0` | 漏了 `#path:/bundle` | 卸载后补上后缀重装 |
+| 图形界面报「没有声明组合包」「未找到相关插件」或「不是有效的插件包」 | 同上，指向了仓库根目录 | 卸载后补上 `#path:/bundle` 重装 |
+| 提示「无法连接插件源」 | 访问不了 GitHub | 换「中国大陆镜像源」，或用方式三并配置代理 |
+| 装完面板里找不到 | 没重启 DSH | 完全退出 DSH 再打开 |
+| 有面板，但不弹通知 | 全部静音被打开，或不是 Windows | 检查面板顶部的「全部静音」开关 |
+| 弹窗一闪就没了 | 停留时长被调太短 | 面板里把「停留时长」调到 5 秒以上 |
+
+还是不行，把 **设置 → 插件 → 任务通知** 面板底部的事件流水截图发到 [Issues](https://github.com/AnsonLi-better/dsh-task-notify/issues)，那里会记录每次弹窗失败的原因。
+
+### 卸载
+
+图形界面：设置 → 插件 → 找到「任务通知」→ 卸载。
+
+命令行：
+
+```powershell
+& "$env:LOCALAPPDATA/Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd" `
+  plugin --profile desktop remove dsh-task-notify
+```
+
+卸载后同样需要重启 DSH。
+
+### 开发用：装本地目录
 
 ```powershell
 git clone https://github.com/AnsonLi-better/dsh-task-notify.git
@@ -103,23 +200,7 @@ git clone https://github.com/AnsonLi-better/dsh-task-notify.git
   plugin --profile desktop add "C:/path/to/dsh-task-notify/bundle"
 ```
 
-也可以走 DSH → 设置 → 插件 → 安装 bundle，选中仓库里的 `bundle/` 目录。
-
-### 验证
-
-```powershell
-& "$env:LOCALAPPDATA/Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd" `
-  plugin --profile desktop list
-```
-
-依赖列表里应出现 `dsh-task-notify`。然后打开 **设置 → 插件 → 任务通知**，点「试弹一次 · 完成」，右下角应出现绿色通知。把 DSH 主窗口最小化再试一次，确认通知照常弹出。
-
-### 卸载
-
-```powershell
-& "$env:LOCALAPPDATA/Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd" `
-  plugin --profile desktop remove dsh-task-notify
-```
+注意路径要指向 `bundle/`，不是仓库根目录。
 
 ## 配置
 
