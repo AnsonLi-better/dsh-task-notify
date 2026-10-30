@@ -262,7 +262,6 @@ dsh-task-notify/
 │   ├── hero.svg
 │   ├── flow.svg
 │   └── anatomy.svg
-├── design/preview/            # 实机截图
 ├── LICENSE
 └── README.md
 ```
