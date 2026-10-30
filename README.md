@@ -17,18 +17,6 @@
 
 ---
 
-## 先看一眼
-
-<table>
-<tr>
-<td width="33.33%"><img src="./design/preview/live-plugin-done.png" alt="完成态通知"><br><sub><b>完成</b> · 绿勾 + 会话标题 + 收尾总结 + 工具调用数</sub></td>
-<td width="33.33%"><img src="./design/preview/live-plugin-failed.png" alt="失败态通知"><br><sub><b>失败</b> · 红叹号 + 失败原因（模型错误 / 超上下文 / 被中断）</sub></td>
-<td width="33.33%"><img src="./design/preview/live-plugin-approval.png" alt="待审批通知"><br><sub><b>待审批</b> · 琥珀问号 + 工具名与原因</sub></td>
-</tr>
-</table>
-
-> 上面三张是插件在 Windows 桌面上的实际渲染结果，不是设计稿。
-
 ## 为什么需要它
 
 跑长任务时你总会切去干别的。任务什么时候结束？是不是失败了？有没有卡在等你批准某个操作？——切回来一眼看不出来，干等又浪费时间。
