@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="hero-title hero-desc"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI Variable Text', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif">
+  <title id="hero-title">dsh-task-notify — DeepSeek Harness 的 Windows 任务通知插件</title>
+  <desc id="hero-desc">左侧是插件名称与一句话说明；右侧是三条真实渲染的通知卡片，分别表示任务完成、任务中断、等待审批。</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.55" y2="1">
+      <stop offset="0" stop-color="#0E1116"/>
+      <stop offset="1" stop-color="#08090C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.79" cy="0.46" r="0.52">
+      <stop offset="0" stop-color="#1D2C3C" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0B0D10" stop-opacity="0"/>
+    </radialGradient>
+    <path id="whale" d="M22.9168 1.43018C22.6713 1.31018 22.5658 1.53918 22.4223 1.65519C22.3733 1.69269 22.3318 1.74169 22.2903 1.78669C21.9317 2.1697 21.5127 2.42121 20.9657 2.39121C20.1657 2.34621 19.4827 2.59771 18.8787 3.20973C18.7502 2.45521 18.3236 2.0047 17.6746 1.71569C17.3351 1.56568 16.9916 1.41518 16.7536 1.08867C16.5876 0.856163 16.5421 0.597155 16.4591 0.341647C16.4061 0.187643 16.3536 0.0301382 16.1761 0.00363739C15.9836 -0.0263635 15.9081 0.135141 15.8326 0.270145C15.5306 0.822162 15.4136 1.43018 15.4251 2.0462C15.4516 3.43174 16.0366 4.53527 17.1991 5.3203C17.3311 5.4103 17.3651 5.5003 17.3236 5.63181C17.2441 5.90231 17.1501 6.16482 17.0671 6.43533C17.0141 6.60784 16.9351 6.64584 16.7501 6.57033C16.1121 6.30383 15.5611 5.90931 15.074 5.4328C14.2475 4.63328 13.5 3.75075 12.568 3.05973C12.349 2.89822 12.13 2.74822 11.9034 2.60522C10.9524 1.68169 12.028 0.923165 12.277 0.833162C12.5375 0.739159 12.3675 0.41615 11.5259 0.42015C10.6844 0.42365 9.91439 0.705658 8.93286 1.08117C8.78935 1.13767 8.63835 1.17867 8.48384 1.21267C7.59332 1.04367 6.66829 1.00617 5.70226 1.11517C3.88321 1.31768 2.43016 2.1777 1.36213 3.64575C0.0790928 5.4103 -0.222916 7.41536 0.146595 9.50642C0.535106 11.7105 1.66014 13.535 3.38869 14.9616C5.18125 16.4406 7.24581 17.1657 9.60138 17.0266C11.0319 16.9441 12.6245 16.7526 14.421 15.2321C14.874 15.4576 15.3496 15.5476 16.1381 15.6151C16.7456 15.6716 17.3306 15.5851 17.7836 15.4911C18.4931 15.3411 18.4441 14.6841 18.1876 14.5636C16.1081 13.595 16.5646 13.9891 16.1496 13.67C17.2061 12.42 18.8202 10.1979 19.3182 7.17235C19.3672 6.83834 19.4297 6.36783 19.4222 6.09732C19.4182 5.93231 19.4562 5.86831 19.6447 5.84931C20.1657 5.78931 20.6712 5.64681 21.1357 5.3913C22.4833 4.65528 23.0268 3.44624 23.1548 1.9972C23.1738 1.77569 23.1508 1.54668 22.9168 1.43018ZM11.1749 14.4736C9.15936 12.889 8.18184 12.3675 7.77832 12.39C7.40081 12.4125 7.46881 12.8445 7.55182 13.126C7.63882 13.404 7.75182 13.5955 7.91033 13.8396C8.01983 14.0011 8.09533 14.2411 7.80083 14.4216C7.15181 14.8231 6.02327 14.2866 5.97027 14.2601C4.65673 13.4865 3.5587 12.4655 2.78467 11.069C2.03715 9.72493 1.60314 8.28289 1.53164 6.74384C1.51264 6.37233 1.62214 6.24082 1.99215 6.17332C2.47916 6.08332 2.98118 6.06432 3.46769 6.13582C5.52476 6.43633 7.27581 7.35586 8.74385 8.8129C9.58188 9.64243 10.2159 10.634 10.8689 11.6025C11.5634 12.631 12.3105 13.611 13.262 14.4146C13.598 14.6961 13.866 14.9101 14.1225 15.0681C13.349 15.1546 12.058 15.1731 11.1749 14.4746L11.1749 14.4736ZM12.141 8.25988C12.141 8.09488 12.273 7.96338 12.439 7.96338C12.4765 7.96338 12.5105 7.97088 12.541 7.98188C12.5825 7.99688 12.6205 8.01938 12.6505 8.05338C12.7035 8.10588 12.7335 8.18088 12.7335 8.25988C12.7335 8.42489 12.6015 8.55639 12.4355 8.55639C12.2695 8.55639 12.141 8.42489 12.141 8.25988ZM15.1415 9.79893C14.949 9.87793 14.7565 9.94544 14.5715 9.95294C14.2845 9.96794 13.9715 9.85143 13.8015 9.70893C13.5375 9.48742 13.3485 9.36342 13.2695 8.97691C13.2355 8.8119 13.2545 8.55639 13.2845 8.40989C13.3525 8.09438 13.277 7.89187 13.0545 7.70787C12.8735 7.55786 12.643 7.51636 12.39 7.51636C12.2955 7.51636 12.209 7.47486 12.1445 7.44136C12.039 7.38886 11.9519 7.25735 12.035 7.09585C12.0615 7.04335 12.19 6.91584 12.22 6.89334C12.5635 6.69784 12.9595 6.76184 13.326 6.90834C13.6655 7.04735 13.9225 7.30236 14.292 7.66287C14.6695 8.09838 14.7375 8.21838 14.9525 8.54539C15.1225 8.8009 15.277 9.06341 15.3831 9.36392C15.4471 9.55142 15.3641 9.70493 15.1415 9.79893Z"/>
+    <path id="glyph-done" d="M5.2,12.4 L9.7,16.9 L18.8,7.6"/>
+    <path id="glyph-failed" d="M12,6.6 L12,13.8"/>
+    <path id="glyph-approval" d="M8.9,9.1 A3.1,3.1 0 1 1 13.1,12 C12.25,12.35 12,13 12,13.9"/>
+  </defs>
+
+  <rect width="1200" height="500" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="500" rx="28" fill="url(#glow)"/>
+  <rect x="0.5" y="0.5" width="1199" height="499" rx="27.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.06"/>
+
+  <!-- ── 左：身份与承诺 ───────────────────────────── -->
+  <g id="copy">
+    <text x="64" y="88" fill="#8A93A0" font-size="16" letter-spacing="3.2"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">DSH COMMUNITY PLUGIN · WINDOWS</text>
+
+    <text x="62" y="168" fill="#F2F4F7" font-size="62" font-weight="700" letter-spacing="-1.5">任务通知</text>
+    <text x="64" y="208" fill="#8B93A0" font-size="21"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">dsh-task-notify</text>
+    <rect x="64" y="232" width="56" height="2" rx="1" fill="#22C55E"/>
+
+    <text x="64" y="284" fill="#C6CCD6" font-size="23">长任务跑完、失败，或者卡在等你审批，</text>
+    <text x="64" y="320" fill="#C6CCD6" font-size="23">Windows 右下角立刻弹一条通知。</text>
+    <text x="64" y="358" fill="#7C8593" font-size="18">DSH 最小化、隐藏到托盘、Web 页面关掉，照常出现。</text>
+
+    <circle cx="70" cy="412" r="5" fill="#22C55E"/>
+    <text x="86" y="419" fill="#A8AFB9" font-size="18">完成</text>
+    <circle cx="196" cy="412" r="5" fill="#EC1313"/>
+    <text x="212" y="419" fill="#A8AFB9" font-size="18">失败</text>
+    <circle cx="300" cy="412" r="5" fill="#F59E0B"/>
+    <text x="316" y="419" fill="#A8AFB9" font-size="18">待审批</text>
+  </g>
+
+  <!-- ── 右：三条真实通知 ─────────────────────────── -->
+  <g id="toasts">
+    <!-- 完成 -->
+    <g transform="translate(0 0)">
+      <rect x="690" y="48" width="440" height="132" rx="12" fill="#000000" opacity="0.35"/>
+      <rect x="690" y="40" width="440" height="132" rx="12" fill="#F9F9F9" stroke="#0F1115" stroke-opacity="0.07"/>
+      <use href="#whale" transform="translate(710 55) scale(0.8636)" fill="#1B1B1C" fill-opacity="0.85"/>
+      <text x="739" y="67" fill="#61666B" font-size="18">DeepSeek Harness</text>
+      <path d="M1108 58 l12 12 M1120 58 l-12 12" stroke="#61666B" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="730" cy="92" r="19" fill="#E9F8EE"/>
+      <g transform="translate(719 81) scale(0.9167)">
+        <use href="#glyph-done" fill="none" stroke="#22C55E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="762" y="100" fill="#1B1B1C" font-size="23" font-weight="600">任务已完成</text>
+      <text x="762" y="127" fill="#61666B" font-size="18">README 视觉升级 · 18 次工具调用</text>
+      <rect x="934" y="136" width="64" height="25" rx="5" fill="#0F1115" fill-opacity="0.05"/>
+      <text x="966" y="153" fill="#1B1B1C" font-size="16" text-anchor="middle">忽略</text>
+      <rect x="1006" y="136" width="104" height="25" rx="5" fill="#0F1115" fill-opacity="0.09"/>
+      <text x="1058" y="153" fill="#1B1B1C" font-size="16" font-weight="600" text-anchor="middle">打开会话</text>
+    </g>
+
+    <!-- 失败 -->
+    <g transform="translate(0 144)">
+      <rect x="690" y="48" width="440" height="132" rx="12" fill="#000000" opacity="0.35"/>
+      <rect x="690" y="40" width="440" height="132" rx="12" fill="#F9F9F9" stroke="#0F1115" stroke-opacity="0.07"/>
+      <use href="#whale" transform="translate(710 55) scale(0.8636)" fill="#1B1B1C" fill-opacity="0.85"/>
+      <text x="739" y="67" fill="#61666B" font-size="18">DeepSeek Harness</text>
+      <path d="M1108 58 l12 12 M1120 58 l-12 12" stroke="#61666B" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="730" cy="92" r="19" fill="#FDECEC"/>
+      <g transform="translate(719 81) scale(0.9167)">
+        <use href="#glyph-failed" fill="none" stroke="#EC1313" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="12" cy="17.6" r="1.35" fill="#EC1313"/>
+      </g>
+      <text x="762" y="100" fill="#1B1B1C" font-size="23" font-weight="600">任务中断</text>
+      <text x="762" y="127" fill="#61666B" font-size="18">README 重排 · 原因：上下文超限</text>
+      <rect x="934" y="136" width="64" height="25" rx="5" fill="#0F1115" fill-opacity="0.05"/>
+      <text x="966" y="153" fill="#1B1B1C" font-size="16" text-anchor="middle">忽略</text>
+      <rect x="1006" y="136" width="104" height="25" rx="5" fill="#0F1115" fill-opacity="0.09"/>
+      <text x="1058" y="153" fill="#1B1B1C" font-size="16" font-weight="600" text-anchor="middle">查看原因</text>
+    </g>
+
+    <!-- 待审批 -->
+    <g transform="translate(0 288)">
+      <rect x="690" y="48" width="440" height="132" rx="12" fill="#000000" opacity="0.35"/>
+      <rect x="690" y="40" width="440" height="132" rx="12" fill="#F9F9F9" stroke="#0F1115" stroke-opacity="0.07"/>
+      <use href="#whale" transform="translate(710 55) scale(0.8636)" fill="#1B1B1C" fill-opacity="0.85"/>
+      <text x="739" y="67" fill="#61666B" font-size="18">DeepSeek Harness</text>
+      <path d="M1108 58 l12 12 M1120 58 l-12 12" stroke="#61666B" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="730" cy="92" r="19" fill="#FEF4E4"/>
+      <g transform="translate(719 81) scale(0.9167)">
+        <use href="#glyph-approval" fill="none" stroke="#F59E0B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="17.7" r="1.35" fill="#F59E0B"/>
+      </g>
+      <text x="762" y="100" fill="#1B1B1C" font-size="23" font-weight="600">等待你的确认</text>
+      <text x="762" y="127" fill="#61666B" font-size="18">shell · 需要你批准后继续</text>
+      <rect x="934" y="136" width="64" height="25" rx="5" fill="#0F1115" fill-opacity="0.05"/>
+      <text x="966" y="153" fill="#1B1B1C" font-size="16" text-anchor="middle">稍后</text>
+      <rect x="1006" y="136" width="104" height="25" rx="5" fill="#0F1115" fill-opacity="0.09"/>
+      <text x="1058" y="153" fill="#1B1B1C" font-size="16" font-weight="600" text-anchor="middle">立即处理</text>
+    </g>
+  </g>
+</svg>

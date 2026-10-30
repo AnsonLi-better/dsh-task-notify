@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="flow-title flow-desc"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI Variable Text', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif">
+  <title id="flow-title">dsh-task-notify 工作流程</title>
+  <desc id="flow-desc">DSH Host 的会话事件先经过插件判断状态并组装文案，再拉起一个独立的 powershell.exe 进程渲染 WPF 置顶窗；点击通知后通过一次性 token 与 SSE 把页面切回原会话。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5A636E"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#22C55E"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" rx="24" fill="#0B0D11"/>
+  <rect x="0.5" y="0.5" width="1199" height="519" rx="23.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.06"/>
+
+  <text x="48" y="50" fill="#8A93A0" font-size="16" letter-spacing="3"
+        font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">HOW IT WORKS</text>
+  <text x="48" y="86" fill="#E8EBEF" font-size="26" font-weight="600">事件进，通知出，点击回到原会话</text>
+
+  <!-- ── 阶段 1：DSH Host ───────────────────────────── -->
+  <g id="stage-host">
+    <rect x="48" y="120" width="344" height="184" rx="14" fill="#11151B" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="76" y="158" fill="#8B93A0" font-size="16"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">DSH Host · Node</text>
+    <text x="76" y="188" fill="#F2F4F7" font-size="20" font-weight="600">会话日志</text>
+
+    <rect x="76" y="206" width="288" height="34" rx="8" fill="#0B0D11" stroke="#FFFFFF" stroke-opacity="0.07"/>
+    <text x="92" y="229" fill="#9AA2AD" font-size="16"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">session/event → turn/end</text>
+
+    <rect x="76" y="248" width="288" height="34" rx="8" fill="#0B0D11" stroke="#FFFFFF" stroke-opacity="0.07"/>
+    <text x="92" y="271" fill="#9AA2AD" font-size="16"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">approval/request</text>
+  </g>
+
+  <!-- ── 阶段 2：插件 ───────────────────────────────── -->
+  <g id="stage-plugin">
+    <rect x="428" y="120" width="344" height="184" rx="14" fill="#11151B" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="456" y="158" fill="#8B93A0" font-size="16"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">task-notify</text>
+    <text x="456" y="188" fill="#F2F4F7" font-size="20" font-weight="600">判定与组装</text>
+
+    <circle cx="463" cy="217" r="3.5" fill="#22C55E"/>
+    <text x="478" y="223" fill="#9AA2AD" font-size="16">completed / error / max-tokens</text>
+    <circle cx="463" cy="249" r="3.5" fill="#F59E0B"/>
+    <text x="478" y="255" fill="#9AA2AD" font-size="16">标题 · 收尾总结 · 工具调用数</text>
+    <circle cx="463" cy="281" r="3.5" fill="#5A636E"/>
+    <text x="478" y="287" fill="#9AA2AD" font-size="16">最多同时 maxVisible 条</text>
+  </g>
+
+  <!-- ── 阶段 3：独立渲染进程 ───────────────────────── -->
+  <g id="stage-render">
+    <rect x="808" y="120" width="344" height="184" rx="14" fill="#11151B" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="836" y="158" fill="#8B93A0" font-size="16"
+          font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">powershell.exe · WPF</text>
+    <text x="836" y="188" fill="#F2F4F7" font-size="20" font-weight="600">置顶窗渲染</text>
+
+    <text x="836" y="223" fill="#9AA2AD" font-size="16">无边框 · 不进任务栏</text>
+    <text x="836" y="255" fill="#9AA2AD" font-size="16">淡入 12px 上移 · 通知音</text>
+    <text x="836" y="287" fill="#9AA2AD" font-size="16">悬停暂停 · 点击或 Esc 关闭</text>
+  </g>
+
+  <!-- 阶段之间的箭头 -->
+  <path d="M400 212 L420 212" stroke="#5A636E" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M780 212 L800 212" stroke="#5A636E" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ── 回跳链路 ──────────────────────────────────── -->
+  <path d="M980 304 L980 372 Q980 384 968 384 L232 384 Q220 384 220 372 L220 312"
+        fill="none" stroke="#22C55E" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="6 6"
+        marker-end="url(#arrow-accent)"/>
+
+  <rect x="356" y="356" width="492" height="54" rx="10" fill="#0B0D11"/>
+  <text x="602" y="380" fill="#7ED9A0" font-size="16" text-anchor="middle"
+        font-family="ui-monospace, 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace">一次性 token → SSE → openSession</text>
+  <text x="602" y="402" fill="#8A93A0" font-size="16" text-anchor="middle">点击「打开会话」时执行</text>
+
+  <!-- 底部说明 -->
+  <text x="48" y="452" fill="#8A93A0" font-size="16">通知进程与 DSH 窗口互相独立：窗口最小化、隐藏到托盘或页面关闭，Host 仍在跑，通知照常弹出。</text>
+  <text x="48" y="482" fill="#8A93A0" font-size="16">每次弹窗是一次独立的进程调用，渲染完自行退出，不会在后台常驻。</text>
+</svg>
